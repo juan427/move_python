@@ -1,0 +1,385 @@
+﻿///$tab Main
+SET ThousandSep='.';
+SET DecimalSep=',';
+SET MoneyThousandSep='.';
+SET MoneyDecimalSep=',';
+SET MoneyFormat='#.##0,00 €;-#.##0,00 €';
+SET TimeFormat='h:mm:ss';
+SET DateFormat='DD/MM/YYYY';
+SET TimestampFormat='DD/MM/YYYY h:mm:ss[.fff]';
+SET MonthNames='ene;feb;mar;abr;may;jun;jul;ago;sep;oct;nov;dic';
+SET DayNames='lun;mar;mié;jue;vie;sáb;dom';
+
+
+
+///$tab Colores
+LET vL.ColorDistancia = RGB(2, 103, 1);
+LET vL.ColorDistanciaGra = ARGB(150, 2, 103, 1);
+LET vL.ColorCalorias = RGB(2, 104, 178);
+LET vL.ColorCaloriasGra = ARGB(100, 2, 104, 178);
+LET vL.ColorDuracion = RGB(255, 90, 1);
+LET vL.ColorDuracionGra = ARGB(150, 255, 90, 1);
+LET vL.ColorCalMin = RGB(156, 39, 176);
+LET vL.ColorCalMinGra = ARGB(150, 156, 39, 176);
+LET vL.ColorIntervTriat = RGB(220, 42, 28);
+LET vL.ColorIntervPie = RGB(128, 128, 128);
+LET vL.ColorTotalSess = RGB(37, 62, 81);
+LET vL.ColorVelMed = RGB(142, 68, 61);
+LET vL.ColorNota= RGB(255, 223, 68);
+
+LET vL.ColorTextoBlanco = RGB(255, 255, 255);
+LET vL.ColorTextoNegro = RGB(37, 62, 81);
+//LET vL.Color = RGB();
+
+//Límites Color Fuente Tabla
+//LET vL.ColorLim1 = ARGB(50, 254, 0, 0);
+//LET vL.ColorLim2 = ARGB(50, 227, 107, 10);
+//LET vL.ColorLim3 = ARGB(50, 255, 192, 0);
+//LET vL.ColorLim4 = ARGB(50, 255, 255, 1);
+//LET vL.ColorLim5 = ARGB(50, 1, 204, 0);
+//LET vL.ColorLim6 = ARGB(50, 0, 153, 0);
+
+LET vL.ColorLim1 = ARGB(100, 254, 0, 5);
+LET vL.ColorLim2 = ARGB(100, 255, 106, 10);
+LET vL.ColorLim3 = ARGB(100, 251, 166, 4);
+LET vL.ColorLim4 = ARGB(100, 255, 253, 8);
+LET vL.ColorLim5 = ARGB(100, 164, 255, 1);
+LET vL.ColorLim6 = ARGB(100, 1, 255, 4);
+
+//LET vL.ColorLim1a = RGB(254, 0, 0);
+//LET vL.ColorLim2a = RGB(227, 107, 10);
+//LET vL.ColorLim3a = RGB(255, 192, 0);
+//LET vL.ColorLim4a = RGB(255, 255, 1);
+//LET vL.ColorLim5a = RGB(1, 204, 0);
+//LET vL.ColorLim6a = RGB(0, 153, 0);
+
+LET vL.ColorLim1a = RGB(254,0,5);
+LET vL.ColorLim2a = RGB(255,106,10);
+LET vL.ColorLim3a = RGB(251,166,4);
+LET vL.ColorLim4a = RGB(255,253,8);
+LET vL.ColorLim5a = RGB(164,255,1);
+LET vL.ColorLim6a = RGB(1,255,4);
+
+//Límites Color Fecha Tabla
+//LET vL.LimMesParSemPar=RGB(230, 230, 230);
+//LET vL.LimMesParSemImpar=RGB(205, 205, 205);
+//LET vL.LimMesImparSemPar=RGB(212, 238, 254);
+//LET vL.LimMesImparSemImpar=RGB(178, 222, 244);
+
+LET vL.LimMesParSemPar=ARGB(150,230, 230, 230);
+LET vL.LimMesParSemImpar=ARGB(150,205, 205, 205);
+LET vL.LimMesImparSemPar=ARGB(150,212, 238, 254);
+LET vL.LimMesImparSemImpar=ARGB(150,178, 222, 244);
+
+LET vL.LimMesParSemPar1=RGB(230, 230, 230);
+LET vL.LimMesParSemImpar1=RGB(205, 205, 205);
+LET vL.LimMesImparSemPar1=RGB(212, 238, 254);
+LET vL.LimMesImparSemImpar1=RGB(178, 222, 244);
+
+LET vL.ColorBordeCuadro = RGB(190, 34, 34);
+LET vL.FondoGris=RGB(229, 229, 229);
+
+COLORES:
+LOAD * Inline
+[
+NumLim
+1
+2
+3
+4
+5
+6
+]
+;
+
+
+LET vL.ColorSelected=RGB(0, 240, 16);
+LET vL.ColorTransparente=ARGB(1,0,0,0);
+LET vL.ColorBlanco=RGB(255, 255, 255);
+LET vL.ColorTotal=RGB(185, 194, 203);
+
+///$tab Variables
+//Etiquetas
+SET vL.TagDistaMed='DISTANCIA:';
+SET vL.TagCalorMed='CALORÍAS:';
+SET vL.TagDuracMed='DURACIÓN.:';
+SET vL.TagMaxCalMin='Max. Cal/Min:';
+SET vL.TagCalMin='CAL/MIN:';
+SET vL.TagVelMed='VELOCIDAD:';
+
+SET vL.TagInterPie='% Interv. Pie:';
+SET vL.TagInterTriat='% Inte. Triat.:';
+
+SET vL.TagTotalSess='Num. Total Sesiones:';
+
+//Formato de números
+SET vL.FormatNumDec='#.###,#';
+SET vL.FormatNumInt='#.###';
+SET vL.FormatNumPerc='#.###,#%';
+SET vL.FormatNumPercInt='#.##0%';
+
+//--Límites Intervalos Color Fuente Tabla--
+//Calorías
+SET vL.Lim1Cal=100;
+SET vL.Lim2Cal=150;
+SET vL.Lim3Cal=200;
+SET vL.Lim4Cal=250;
+SET vL.Lim5Cal=300;
+//Duración
+SET vL.Lim1Dur=10;
+SET vL.Lim2Dur=20;
+SET vL.Lim3Dur=30;
+SET vL.Lim4Dur=40;
+SET vL.Lim5Dur=50;
+//Distancia:
+SET vL.Lim1Dist=8;
+SET vL.Lim2Dist=11;
+SET vL.Lim3Dist=15;
+SET vL.Lim4Dist=18;
+SET vL.Lim5Dist=22;
+//Calorías/Duración
+SET vL.Lim1CalMin=5,5;
+SET vL.Lim2CalMin=6;
+SET vL.Lim3CalMin=6,5;
+SET vL.Lim4CalMin=7;
+SET vL.Lim5CalMin=7,5;
+//Velocidad Media
+SET vL.Lim1VelMed=20;
+SET vL.Lim2VelMed=23;
+SET vL.Lim3VelMed=27;
+SET vL.Lim4VelMed=30;
+SET vL.Lim5VelMed=34;
+//Porcentajes días
+SET vL.Lim1Porcent=35;
+SET vL.Lim2Porcent=42;
+SET vL.Lim3Porcent=50;
+SET vL.Lim4Porcent=62;
+SET vL.Lim5Porcent=75;
+//Nota Global
+SET vL.Lim1Nota=5;
+SET vL.Lim2Nota=7;
+SET vL.Lim3Nota=8;
+SET vL.Lim4Nota=9;
+SET vL.Lim5Nota=9,5;
+
+//Gráfico para flag de mostrar métrias
+GRAFICO_METRICA:
+LOAD * INLINE [
+Flag,Campo
+0,Todas
+1,Calorías
+2,Duración
+3,Distancia
+4,Cal/min
+5,Vel.Med.
+6,Nota
+];
+
+//Gráfico para intervalos de tiempo
+GRAFICO_TIEMPO:
+LOAD * INLINE [
+FlagTime,CampoTime
+0,Dia
+1,Semana
+2,Mes
+3,Trimestre
+4,Año
+];
+
+//Tabla leyenda límites y color:
+LEYENDA:
+LOAD * INLINE 
+[
+Num_Interv, Lim.Calorías, Lim.Duración, Lim. Distancia, Lim. Cal/Min, Lim. Vel.Med., Lim. Porcent., Lim. Nota
+1, <$(vL.Lim1Cal),<$(vL.Lim1Dur), <$(vL.Lim1Dist), '<$(vL.Lim1CalMin)', <$(vL.Lim1VelMed), <$(vL.Lim1Porcent), '<$(vL.Lim1Nota)'
+2, $(vL.Lim1Cal) - $(vL.Lim2Cal),$(vL.Lim1Dur) - $(vL.Lim2Dur), $(vL.Lim1Dist) - $(vL.Lim2Dist), '$(vL.Lim1CalMin) - $(vL.Lim2CalMin)', $(vL.Lim1VelMed) - $(vL.Lim2VelMed), $(vL.Lim1Porcent) - $(vL.Lim2Porcent), '$(vL.Lim1Nota) - $(vL.Lim2Nota)'
+3, $(vL.Lim2Cal) - $(vL.Lim3Cal),$(vL.Lim2Dur) - $(vL.Lim3Dur), $(vL.Lim2Dist) - $(vL.Lim3Dist), '$(vL.Lim2CalMin) - $(vL.Lim3CalMin)', $(vL.Lim2VelMed) - $(vL.Lim3VelMed), $(vL.Lim2Porcent) - $(vL.Lim3Porcent), '$(vL.Lim2Nota) - $(vL.Lim3Nota)'
+4, $(vL.Lim3Cal) - $(vL.Lim4Cal),$(vL.Lim3Dur) - $(vL.Lim4Dur), $(vL.Lim3Dist) - $(vL.Lim4Dist), '$(vL.Lim3CalMin) - $(vL.Lim4CalMin)', $(vL.Lim3VelMed) - $(vL.Lim4VelMed), $(vL.Lim3Porcent) - $(vL.Lim4Porcent), '$(vL.Lim3Nota) - $(vL.Lim4Nota)'
+5, $(vL.Lim4Cal) - $(vL.Lim5Cal),$(vL.Lim4Dur) - $(vL.Lim5Dur), $(vL.Lim4Dist) - $(vL.Lim5Dist), '$(vL.Lim4CalMin) - $(vL.Lim5CalMin)', $(vL.Lim4VelMed) - $(vL.Lim5VelMed), $(vL.Lim4Porcent) - $(vL.Lim5Porcent), '$(vL.Lim4Nota) - $(vL.Lim5Nota)'
+6, >$(vL.Lim5Cal), >$(vL.Lim5Dur), >$(vL.Lim5Dist), '>$(vL.Lim5CalMin)', >$(vL.Lim5VelMed), >$(vL.Lim5Porcent), '>$(vL.Lim5Nota)'
+];
+
+SET vL.GrafSemDia=1;
+SET vL.LeyendaFlag=0;
+SET vL.SwitchDias=0;
+SET vL.MostarSemana=0;
+
+//Factores para mostrar graficos de barra en tabla
+SET vL.FactorIndicadCalor=70;
+SET vL.FactorIndicadDurac=12;
+
+//Ponderaciones para nota global(el porcentaje sumará 100%):
+SET vL.PondCalor=30;
+SET vL.PondDurac=40;
+SET vL.PondDist=30;
+
+SET vL.ExpressNota= Num(
+						Avg(Aggr(Calorías,Fecha))/Max({1} TOTAL Calorías)*(vL.PondCalor/10)+
+							Avg(Aggr(Duración,Fecha))/Max({1} TOTAL Duración)*(vL.PondDurac/10)+
+								Avg(Aggr(Distancia,Fecha))/Max({1} TOTAL Distancia)*(vL.PondDist/10)
+					,vL.FormatNumDec)
+;
+
+SET vL.ExpressNotaMedTot= Avg({1}Aggr(Calorías,Fecha))/Max({1} TOTAL Calorías)*(vL.PondCalor/10)+
+						Avg({1}Aggr(Duración,Fecha))/Max({1} TOTAL Duración)*(vL.PondDurac/10)+
+							Avg({1}Aggr(Distancia,Fecha))/Max({1} TOTAL Distancia)*(vL.PondDist/10)
+;
+
+SET vL.ExpressNotaMax= Num(
+						Max(Aggr(Calorías,Fecha))/Max({1} TOTAL Calorías)*(vL.PondCalor/10)+
+							Max(Aggr(Duración,Fecha))/Max({1} TOTAL Duración)*(vL.PondDurac/10)+
+								Max(Aggr(Distancia,Fecha))/Max({1} TOTAL Distancia)*(vL.PondDist/10)
+					,vL.FormatNumDec)
+;
+
+SET vL.ExpressNotaCal= Num(
+						(Avg(Aggr(Calorías,Fecha))/Max({1} TOTAL Calorías))*10
+					,vL.FormatNumDec)
+;
+
+SET vL.ExpressNotaDur= Num(
+						(Avg(Aggr(Duración,Fecha))/Max({1} TOTAL Duración))*10
+					,vL.FormatNumDec)
+;
+
+SET vL.ExpressNotaDist= Num(
+						(Avg(Aggr(Distancia,Fecha))/Max({1} TOTAL Distancia))*10
+					,vL.FormatNumDec)
+;
+
+///$tab Datos
+DATOS:
+LOAD Date(Date#(Fecha),'DD/MM/YYYY') as Fecha, 
+     Duración, 
+     Distancia, 
+     Calorías, 
+     If(Upper(Interv_Triat)='TRUE',1,0) as Interv_Triat, 
+     If(Upper(Interv_Pie)='TRUE',1,0) as Interv_Pie, 
+     Hora, 
+     [Cal/min],
+     Distancia/(Duración/60) as Veloc_Media,
+     1 as CountSess,
+     RowNo() as NumSess
+FROM
+Spinning.csv
+(txt, utf8, embedded labels, delimiter is ',', msq);
+
+
+///$tab Calendario
+QuartersMap:  
+MAPPING LOAD   
+rowno() as Month,  
+'Q' & Ceil (rowno()/3) as Quarter  
+AUTOGENERATE (12);  
+  
+Temp:  
+Load  
+	Min(Fecha)-1 as minDate,  
+	Max(Fecha) as maxDate  
+Resident DATOS;  
+  
+Let varMinDate = Num(Peek('minDate', 0, 'Temp'));  
+Let varMaxDate = Num(Peek('maxDate', 0, 'Temp')); 
+ 
+DROP Table Temp;  
+
+//---------------------------------------------------------------------------------------
+//CALENDARIO GENERADO SOLO CON DIAS SESIÓN:
+
+//TempCalendar:  
+//LOAD  
+//	$(varMinDate) + Iterno()-1 As Num,  
+//	Date($(varMinDate) + IterNo() - 1) as TempDate  
+//	AutoGenerate 1 While $(varMinDate) + IterNo() -1 <= $(varMaxDate);  
+//  
+//MasterCalendar:  
+//LOAD  
+//	TempDate as Fecha,  
+//	Week(TempDate) as Week,  
+//	Year(TempDate) as Year,  
+//	Month(TempDate) as Month,  
+//	Day(TempDate) as Day,  
+//	YearToDate(TempDate)*-1 as CurYTDFlag,  
+//	YearToDate(TempDate,-1)*-1 as LastYTDFlag,  
+//	InYear(TempDate, Monthstart($(varMaxDate)),-1) as RC12,  
+//	Date(MonthStart(TempDate), 'MMM-YYYY') as MonthYear,  
+//	ApplyMap('QuartersMap', Month(TempDate), Null()) as Quarter,  
+//	Week(weekstart(TempDate)) & '-' & WeekYear(TempDate) as WeekYear,  
+//	WeekDay(TempDate) as WeekDay,
+//	if(Month(TempDate) = 'ene','Enero',
+//		if(Month(TempDate) = 'feb','Febrero',
+//		if(Month(TempDate) = 'mar','Marzo',
+//		if(Month(TempDate) = 'abr','Abril',
+//		if(Month(TempDate) = 'may','Mayo',
+//		if(Month(TempDate) = 'jun','Junio',
+//		if(Month(TempDate) = 'jul','Julio',
+//		if(Month(TempDate) = 'ago','Agosto',
+//		if(Month(TempDate) = 'sep','Septiembre',
+//		if(Month(TempDate) = 'oct','Octubre',
+//		if(Month(TempDate) = 'nov','Noviembre',
+//		if(Month(TempDate) = 'dic','Diciembre')))))))))))) as Mes_textolargo, 
+//	if(WeekDay(TempDate) = '0','Lunes',
+//		if(WeekDay(TempDate) = '1','Martes',
+//		if(WeekDay(TempDate) = '2','Miercoles',
+//		if(WeekDay(TempDate) = '3','Jueves',
+//		if(WeekDay(TempDate) = '4','Viernes',
+//		if(WeekDay(TempDate) = '5','Sabado',
+//		if(WeekDay(TempDate) = '6','Domingo'))))))) as DiaSemana_textolargo
+//Resident TempCalendar  
+//Order By TempDate asc;  
+//
+//Inner Join
+//LOAD
+//	Fecha, 
+//	DiaSemana_textolargo & '-' & Day & '-' & Month & '-' & Year as FechaLarga
+//Resident MasterCalendar;
+//
+//DROP Table TempCalendar; 
+
+//---------------------------------------------------------------------------------------
+//CALENDARIO GENERADO CON TODOS LOS DIAS:
+
+MasterCalendar:
+LOAD
+	RowNo() as NumDia,
+	Date1 as Fecha,
+	Year(Date1) as Year,
+	Month(Date1) as Month,
+	Day(Date1) as Day,
+	Week(Date1) as Week,
+	Date(MonthStart(Date1), 'MMM-YYYY') as MonthYear,
+	ApplyMap('QuartersMap', Month(Date1), Null()) as Quarter,
+	ApplyMap('QuartersMap', Month(Date1), Null()) & '-' & Right(Year(Date1),2) as QuarterYear,  
+	Week(weekstart(Date1)) & '-' & WeekYear(Date1) as WeekYear,
+	WeekDay(Date1) as WeekDay,
+	if(Month(Date1) = 'ene','Enero',
+		if(Month(Date1) = 'feb','Febrero',
+		if(Month(Date1) = 'mar','Marzo',
+		if(Month(Date1) = 'abr','Abril',
+		if(Month(Date1) = 'may','Mayo',
+		if(Month(Date1) = 'jun','Junio',
+		if(Month(Date1) = 'jul','Julio',
+		if(Month(Date1) = 'ago','Agosto',
+		if(Month(Date1) = 'sep','Septiembre',
+		if(Month(Date1) = 'oct','Octubre',
+		if(Month(Date1) = 'nov','Noviembre',
+		if(Month(Date1) = 'dic','Diciembre')))))))))))) as Mes_textolargo, 
+	if(WeekDay(Date1) = '0','Lunes',
+		if(WeekDay(Date1) = '1','Martes',
+		if(WeekDay(Date1) = '2','Miercoles',
+		if(WeekDay(Date1) = '3','Jueves',
+		if(WeekDay(Date1) = '4','Viernes',
+		if(WeekDay(Date1) = '5','Sabado',
+		if(WeekDay(Date1) = '6','Domingo'))))))) as DiaSemana_textolargo,
+	1 as DummyFecha	
+		;	
+		
+LOAD Date(recno()+$(varMinDate)) as Date1 Autogenerate varMaxDate - varMinDate;
+
+Inner Join
+LOAD
+	Fecha, 
+	DiaSemana_textolargo & '-' & Day & '-' & Month & '-' & Year as FechaLarga
+Resident MasterCalendar;
+
+RENAME Field Year to Año;
